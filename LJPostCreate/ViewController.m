@@ -36,15 +36,7 @@ typedef NS_ENUM(NSUInteger, FontStyleType) {
     
     [self restorePostIfExist];
     
-    // Add wiki button to UIMenuController
-    UIMenuController *menuController = [UIMenuController sharedMenuController];
-    UIMenuItem *boldItem = [[UIMenuItem alloc] initWithTitle:@"Bold" action:@selector(setSelectionBold:)];
-    UIMenuItem *italicItem = [[UIMenuItem alloc] initWithTitle:@"Italic" action:@selector(setSelectionItalic:)];
-    UIMenuItem *strikeItem = [[UIMenuItem alloc] initWithTitle:@"Strike" action:@selector(setSelectionStrike:)];
-    UIMenuItem *underlineItem = [[UIMenuItem alloc] initWithTitle:@"Underline" action:@selector(setSelectionUnderline:)];
-//    UIMenuItem *linkItem = [[UIMenuItem alloc] initWithTitle:nil action:@selector(setLink:)];
-//    [linkItem set];
-    [menuController setMenuItems:@[boldItem, italicItem, strikeItem, underlineItem]];
+
 }
 
 - (void)didReceiveMemoryWarning {

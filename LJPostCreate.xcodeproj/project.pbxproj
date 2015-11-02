@@ -16,6 +16,7 @@
 		792BE9F41AFC8C79001E8A0F /* LJPostCreateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 792BE9F31AFC8C79001E8A0F /* LJPostCreateTests.m */; };
 		792BEA001AFC927C001E8A0F /* UIFont+Support.m in Sources */ = {isa = PBXBuildFile; fileRef = 792BE9FF1AFC927C001E8A0F /* UIFont+Support.m */; };
 		795E49881BA9AA4600576FB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795E49871BA9AA4600576FB3 /* CoreLocation.framework */; };
+		7978E66E1BE7BCB200E77312 /* EditorTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7978E66D1BE7BCB200E77312 /* EditorTextView.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		792BE9FE1AFC927C001E8A0F /* UIFont+Support.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Support.h"; sourceTree = "<group>"; };
 		792BE9FF1AFC927C001E8A0F /* UIFont+Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Support.m"; sourceTree = "<group>"; };
 		795E49871BA9AA4600576FB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7978E66C1BE7BCB200E77312 /* EditorTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditorTextView.h; sourceTree = "<group>"; };
+		7978E66D1BE7BCB200E77312 /* EditorTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditorTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 				792BE9E41AFC8C79001E8A0F /* Images.xcassets */,
 				792BE9E61AFC8C79001E8A0F /* LaunchScreen.xib */,
 				792BE9D71AFC8C79001E8A0F /* Supporting Files */,
+				7978E66C1BE7BCB200E77312 /* EditorTextView.h */,
+				7978E66D1BE7BCB200E77312 /* EditorTextView.m */,
 			);
 			path = LJPostCreate;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				792BEA001AFC927C001E8A0F /* UIFont+Support.m in Sources */,
 				792BE9E01AFC8C79001E8A0F /* ViewController.m in Sources */,
 				792BE9DD1AFC8C79001E8A0F /* AppDelegate.m in Sources */,
+				7978E66E1BE7BCB200E77312 /* EditorTextView.m in Sources */,
 				792BE9DA1AFC8C79001E8A0F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
