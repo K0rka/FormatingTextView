@@ -9,6 +9,14 @@
 #import "EditorTextView.h"
 #import "UIFont+Support.h"
 
+
+NSString *const kSetSelectionBoldSelectorName = @"setSelectionBold:";
+NSString *const kSetSelectionItalicSelectorName = @"setSelectionItalic:";
+NSString *const kSetSelectionStrikethroughSelectorName = @"setSelectionStrike:";
+NSString *const kSetSelectionUnderlineSelectorName = @"setSelectionUnderline:";
+
+
+
 typedef NS_ENUM(NSUInteger, FontStyleType) {
     FontStyleTypeBold,
     FontStyleTypeItalic
@@ -30,34 +38,47 @@ typedef NS_ENUM(NSUInteger, FontStyleType) {
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self configureFormatingMenuForTextView];
+        [self configureFormatingMenuControllerForTextView];
     }
     return self;
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self configureFormatingMenuForTextView];
+    [self configureFormatingMenuControllerForTextView];
 }
 
 
-- (void)configureFormatingMenuForTextView {
+- (void)configureFormatingMenuControllerForTextView {
     
-    EditorFormatType supportedFormatType;
+    EditorFormatType supportedFormatType = EditorFormatTypeAll;
     
     if ([self.settingsDelegate respondsToSelector:@selector(supportedTextEditorParameters)]) {
         supportedFormatType = [self.settingsDelegate supportedTextEditorParameters];
     }
-    
-    // Add wiki button to UIMenuController
+
     UIMenuController *menuController = [UIMenuController sharedMenuController];
-    UIMenuItem *boldItem = [[UIMenuItem alloc] initWithTitle:@"Bold" action:@selector(setSelectionBold:)];
-    UIMenuItem *italicItem = [[UIMenuItem alloc] initWithTitle:@"Italic" action:@selector(setSelectionItalic:)];
-    UIMenuItem *strikeItem = [[UIMenuItem alloc] initWithTitle:@"Strike" action:@selector(setSelectionStrike:)];
-    UIMenuItem *underlineItem = [[UIMenuItem alloc] initWithTitle:@"Underline" action:@selector(setSelectionUnderline:)];
-    //    UIMenuItem *linkItem = [[UIMenuItem alloc] initWithTitle:nil action:@selector(setLink:)];
-    //    [linkItem set];
-    [menuController setMenuItems:@[boldItem, italicItem, strikeItem, underlineItem]];
+    NSMutableArray *menuItems = [NSMutableArray new];
+    
+    if (supportedFormatType & EditorFormatTypeBold) {
+        UIMenuItem *boldItem = [[UIMenuItem alloc] initWithTitle:@"Bold" action:NSSelectorFromString(kSetSelectionBoldSelectorName)];
+        [menuItems addObject:boldItem];
+    }
+    if (supportedFormatType & EditorFormatTypeItalic) {
+        UIMenuItem *italicItem = [[UIMenuItem alloc] initWithTitle:@"Italic" action:NSSelectorFromString(kSetSelectionItalicSelectorName)];
+        [menuItems addObject:italicItem];
+    }
+    if (supportedFormatType & EditorFormatTypeStrikethrough) {
+        UIMenuItem *strikeItem = [[UIMenuItem alloc] initWithTitle:@"Strike" action:NSSelectorFromString(kSetSelectionStrikethroughSelectorName)];
+        [menuItems addObject:strikeItem];
+    }
+    if (supportedFormatType & EditorFormatTypeUnderline) {
+        UIMenuItem *underlineItem = [[UIMenuItem alloc] initWithTitle:@"Underline" action:NSSelectorFromString(kSetSelectionUnderlineSelectorName)];
+        [menuItems addObject:underlineItem];
+    }
+
+    
+    [menuController setMenuItems:[menuItems copy]];
 }
 
 
@@ -65,7 +86,6 @@ typedef NS_ENUM(NSUInteger, FontStyleType) {
 #pragma mark - Formatting methods
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    
     UIFont *currentFont = textView.font;
     NSMutableDictionary *firstAttr = [NSMutableDictionary new];
     
@@ -73,7 +93,6 @@ typedef NS_ENUM(NSUInteger, FontStyleType) {
     NSNumber *strikeValue = @0;
     NSRange underlineEffectiveRange = NSMakeRange(0, 0);
     NSRange strikeEffectiveRange = NSMakeRange(0, 0);
-    
     
     if (!text.length) {
         return YES;
@@ -118,8 +137,6 @@ typedef NS_ENUM(NSUInteger, FontStyleType) {
     
     
     if (didChangeText) {
-        
-        
         [attrString addAttributes:firstAttr range:range];
         [attrString addAttribute:NSFontAttributeName value:currentFont range:NSMakeRange(range.location, text.length)];
         
@@ -230,7 +247,6 @@ typedef NS_ENUM(NSUInteger, FontStyleType) {
     if (selectedString.length) {
         [selectedString enumerateAttribute:NSUnderlineStyleAttributeName inRange:NSMakeRange(0, selectedString.length) options:0 usingBlock:^(NSNumber *value, NSRange range, BOOL *stop) {
             [newString addAttribute:NSUnderlineStyleAttributeName value:[value integerValue] ? @0 : @1 range:range];
-            
         }];
         
         NSMutableAttributedString *currentString = [self.attributedText mutableCopy];

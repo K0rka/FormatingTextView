@@ -35,4 +35,25 @@
     return font;
 }
 
+- (UIFont *)boldFontFromCurrent {
+    CGFloat fontSize = [self pointSize];
+    UIFontDescriptor * fontD = self.fontDescriptor;
+    
+    fontD = [fontD fontDescriptorWithSymbolicTraits:fontD.symbolicTraits | UIFontDescriptorTraitBold];
+    
+    UIFont *font = [UIFont fontWithDescriptor:fontD size:fontSize];
+    return font;
+}
+
+
+- (UIFont *)italicFontFromCurrent {
+    CGFloat fontSize = [self pointSize];
+    UIFontDescriptor * fontD = self.fontDescriptor;
+    
+    fontD = [fontD fontDescriptorWithSymbolicTraits:fontD.symbolicTraits | UIFontDescriptorTraitItalic];
+    
+    UIFont *font = [UIFont fontWithDescriptor:fontD size:fontSize];
+    return font;
+}
+
 @end
