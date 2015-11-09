@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "http://EXAMPLE/EditorTextView.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/K0rka/FormatingTextView.git", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,10 +90,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Pod", "Pod/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "Pod", "EditorTextView/Pod/**/*.{h,m}"
+  #s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Pod/**/*.h"
+  # s.public_header_files = "EditorTextView/Pod/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
