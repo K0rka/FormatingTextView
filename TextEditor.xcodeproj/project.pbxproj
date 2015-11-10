@@ -17,6 +17,7 @@
 		793DDBBB1BF0F1BE001F8AC1 /* EditorTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 793DDBB01BF0F1BE001F8AC1 /* EditorTextView.m */; settings = {ASSET_TAGS = (); }; };
 		793DDBBC1BF0F1BE001F8AC1 /* UIFont+Support.m in Sources */ = {isa = PBXBuildFile; fileRef = 793DDBB21BF0F1BE001F8AC1 /* UIFont+Support.m */; settings = {ASSET_TAGS = (); }; };
 		793DDBBD1BF0F1BE001F8AC1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 793DDBB41BF0F1BE001F8AC1 /* ViewController.m */; settings = {ASSET_TAGS = (); }; };
+		793DDBBF1BF1EB1E001F8AC1 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 793DDBBE1BF1EB1E001F8AC1 /* LICENSE.txt */; settings = {ASSET_TAGS = (); }; };
 		795E49881BA9AA4600576FB3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 795E49871BA9AA4600576FB3 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		793DDBB21BF0F1BE001F8AC1 /* UIFont+Support.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Support.m"; sourceTree = "<group>"; };
 		793DDBB31BF0F1BE001F8AC1 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		793DDBB41BF0F1BE001F8AC1 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		793DDBBE1BF1EB1E001F8AC1 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		795E49871BA9AA4600576FB3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 		792BE9CB1AFC8C79001E8A0F = {
 			isa = PBXGroup;
 			children = (
+				793DDBBE1BF1EB1E001F8AC1 /* LICENSE.txt */,
 				793DDBA41BF0F1BE001F8AC1 /* EditorTextView */,
 				793DDB981BF0F14B001F8AC1 /* EditorTextViewTests */,
 				795E49871BA9AA4600576FB3 /* CoreLocation.framework */,
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				793DDBBF1BF1EB1E001F8AC1 /* LICENSE.txt in Resources */,
 				793DDBB71BF0F1BE001F8AC1 /* Main.storyboard in Resources */,
 				793DDBB81BF0F1BE001F8AC1 /* Images.xcassets in Resources */,
 				793DDBB61BF0F1BE001F8AC1 /* LaunchScreen.xib in Resources */,
